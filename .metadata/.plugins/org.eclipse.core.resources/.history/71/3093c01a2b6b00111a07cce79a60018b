@@ -1,0 +1,38 @@
+package com.uisrael.saludvida.dominio.entidades;
+
+public class Inventario {
+	
+	private int idinventario;
+	private String stockActual;
+	private String stockMinimo;
+	public Inventario(int idinventario, String stockActual, String stockMinimo) {
+		super();
+		this.idinventario = idinventario;
+		this.stockActual = stockActual;
+		this.stockMinimo = stockMinimo;
+	}
+	public Inventario() {
+		super();
+	}
+	public int getIdinventario() {
+		return idinventario;
+	}
+	public void setIdinventario(int idinventario) {
+		this.idinventario = idinventario;
+	}
+	public String getStockActual() {
+		return stockActual;
+	}
+	public void setStockActual(String stockActual) {
+		this.stockActual = stockActual;
+	}
+	public String getStockMinimo() {
+		return stockMinimo;
+	}
+	public void setStockMinimo(String stockMinimo) {
+		this.stockMinimo = stockMinimo;
+	}
+	
+	
+
+}
