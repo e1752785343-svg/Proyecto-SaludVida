@@ -1,0 +1,5 @@
+package com.uisrael.saludvida.presentacion.controladores;
+
+public class ClienteControlador {
+
+}

@@ -1,5 +1,0 @@
-package com.uisrael.saludvida.infraestructura.persistencia.jpa;
-
-public class ClienteJpa {
-
-}

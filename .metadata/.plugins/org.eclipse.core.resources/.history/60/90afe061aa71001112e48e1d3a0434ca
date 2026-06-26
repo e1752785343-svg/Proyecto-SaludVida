@@ -1,0 +1,5 @@
+package com.uisrael.saludvida.aplicacion.casouso.impl;
+
+public class UsuarioUseCaseImpl {
+
+}

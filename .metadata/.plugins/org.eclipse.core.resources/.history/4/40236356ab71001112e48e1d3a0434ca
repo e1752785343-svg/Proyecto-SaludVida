@@ -1,0 +1,5 @@
+package com.uisrael.saludvida.presentacion.dto.response;
+
+public class InventarioResponseDto {
+
+}
