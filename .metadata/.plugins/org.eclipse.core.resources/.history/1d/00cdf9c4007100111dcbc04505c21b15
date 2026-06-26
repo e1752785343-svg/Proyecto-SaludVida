@@ -1,0 +1,5 @@
+package com.uisrael.saludvida.infraestructura.persistencia.mapeadores;
+
+public interface IInventarioJpaMapper {
+
+}

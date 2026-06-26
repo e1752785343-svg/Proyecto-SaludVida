@@ -1,0 +1,50 @@
+package com.uisrael.saludvida.infraestructura.persistencia.adaptadores;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.uisrael.saludvida.dominio.entidades.Cliente;
+import com.uisrael.saludvida.dominio.repositorio.IClienteRepository;
+import com.uisrael.saludvida.infraestructura.persistencia.jpa.ClienteJpa;
+import com.uisrael.saludvida.infraestructura.persistencia.mapeadores.IClienteJpaMapper;
+import com.uisrael.saludvida.infraestructura.persistencia.repositorios.IClienteJpaRepository;
+
+public class ClienteRepositorioImpl implements IClienteRepository{
+	
+	private final IClienteJpaRepository jparepository;
+	private final IClienteJpaMapper entitymapper;
+	
+	
+
+	public ClienteRepositorioImpl(IClienteJpaRepository jparepository, IClienteJpaMapper entitymapper) {
+		super();
+		this.jparepository = jparepository;
+		this.entitymapper = entitymapper;
+	}
+
+	@Override
+	public Cliente guardar(Cliente cliente) {
+		ClienteJpa entity = entitymapper.toEntity(cliente);
+		ClienteJpa guardado = jparepository.save(entity);
+		return entitymapper.toDomain(guardado);
+	}
+
+	@Override
+	public Optional<Cliente> buscarporId(int id) {
+		// TODO Auto-generated method stub
+		return jparepository.findById(id).map(entitymapper :: toDomain);
+	}
+
+	@Override
+	public List<Cliente> listarTodos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void eliminar(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

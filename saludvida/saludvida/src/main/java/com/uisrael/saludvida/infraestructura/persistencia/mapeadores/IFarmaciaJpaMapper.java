@@ -1,0 +1,15 @@
+package com.uisrael.saludvida.infraestructura.persistencia.mapeadores;
+
+
+import org.mapstruct.Mapper;
+
+import com.uisrael.saludvida.dominio.entidades.Farmacia;
+import com.uisrael.saludvida.infraestructura.persistencia.jpa.FarmaciaJpa;
+@Mapper(componentModel = "spring")
+public interface IFarmaciaJpaMapper {
+
+	Farmacia toDomain(FarmaciaJpa entity);
+
+	FarmaciaJpa toEntity(Farmacia farmacia);
+
+}

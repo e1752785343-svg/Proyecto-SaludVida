@@ -1,0 +1,5 @@
+package com.uisrael.saludvida.dominio.repositorio;
+
+public interface IInventarioRepository {
+
+}

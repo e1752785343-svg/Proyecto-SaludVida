@@ -1,0 +1,5 @@
+package com.uisrael.saludvida.aplicacion.casouso.entrada;
+
+public interface IFarmaciaUseCase {
+
+}

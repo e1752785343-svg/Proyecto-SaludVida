@@ -1,0 +1,50 @@
+package com.uisrael.saludvida.infraestructura.persistencia.adaptadores;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.uisrael.saludvida.dominio.entidades.Inventario;
+import com.uisrael.saludvida.dominio.repositorio.IInventarioRepository;
+import com.uisrael.saludvida.infraestructura.persistencia.jpa.InventarioJpa;
+import com.uisrael.saludvida.infraestructura.persistencia.mapeadores.IInventarioJpaMapper;
+import com.uisrael.saludvida.infraestructura.persistencia.repositorios.IInventarioJpaRepository;
+
+public class InventarioRepositorioImpl implements IInventarioRepository{
+	
+	private final IInventarioJpaRepository jparepository;
+	private final IInventarioJpaMapper entitymapper;
+	
+	
+
+	public InventarioRepositorioImpl(IInventarioJpaRepository jparepository, IInventarioJpaMapper entitymapper) {
+		super();
+		this.jparepository = jparepository;
+		this.entitymapper = entitymapper;
+	}
+
+	@Override
+	public Inventario guardar(Inventario inventario) {
+		InventarioJpa entity = entitymapper.toEntity(inventario);
+		InventarioJpa guardado = jparepository.save(entity);
+		return entitymapper.toDomain(guardado);
+	}
+
+	@Override
+	public Optional<Inventario> buscarporId(int id) {
+		// TODO Auto-generated method stub
+		return jparepository.findById(id).map(entitymapper :: toDomain);
+	}
+
+	@Override
+	public List<Inventario> listarTodos() {
+		// TODO Auto-generated method stub
+		return jparepository.findAll().stream().map(entitymapper :: toDomain).toList();
+	}
+
+	@Override
+	public void eliminar(int id) {
+		// TODO Auto-generated method stub
+		jparepository.deleteById(id);
+	}
+
+}
